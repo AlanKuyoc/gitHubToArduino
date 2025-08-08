@@ -3,8 +3,33 @@ name: Push Buzzer
 on:
   push:
 
+permissions: 
+  contents: write
+
 jobs:
-  notify-arduino:
+  creacion-Archivo:
+    runs-on: ubunto-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: escribir en el README
+        run: |
+          echo -e "\n\nfucha del ultimo push:  $(date)" >> README.md
+
+      - name: configurancion git en el servidor
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: hacer commit y push en el servior
+        run: |
+          git add README.md
+          git commit -m "Update README automatically"
+          git push
+      
+  mensaje-a-Arduino:
     runs-on: ubuntu-latest
 
     steps:
