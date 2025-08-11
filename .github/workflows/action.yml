@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  creacion-Archivo:
+  Registro-mensajes:
     runs-on: ubuntu-latest
 
     steps:
@@ -16,7 +16,7 @@ jobs:
 
       - name: escribir en el README
         run: |
-          echo -e "\n\nfucha del ultimo push:  $(date)" >> README.md
+          echo -e "\n\nUltimo mensajes registrado Hacia el arduino:  $(date)" >> README.md
 
       - name: configurancion git en el servidor
         run: |
@@ -29,10 +29,11 @@ jobs:
           git commit -m "Update README automatically"
           git push
       
-  mensaje-a-Arduino:
+  envio-mensajes:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Enviar señal a Processing
-        run: |
-          curl -X POST http://89.116.55.194:5000
+      - name: Instalar cliente Mosquitto
+        run: sudo apt-get update && sudo apt-get install -y mosquitto-clients
+
+      - name: Publicar en MQTT
+        run: mosquitto_pub -h test.mosquitto.org -p 1883 -t "GiuhubToHeltec" -m "Hola desde GitHub Actions"
