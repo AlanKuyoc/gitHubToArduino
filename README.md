@@ -5,3 +5,6 @@ fucha del ultimo push:  Fri Aug  8 21:34:06 UTC 2025
 
 
 fucha del ultimo push:  Fri Aug  8 21:49:18 UTC 2025
+
+
+Ultimo mensajes registrado Hacia el arduino:  Mon Aug 11 17:29:19 UTC 2025
