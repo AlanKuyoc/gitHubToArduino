@@ -5,7 +5,5 @@ The idea is to make an alarm that warns when someone upload a modification to th
 This proyect is made with arduino, a buzzer , gitHub actions and MQTT protocolo.
 
 
-Ultimo mensajes registrado Hacia el arduino:  Mon Aug 11 22:13:45 UTC 2025
-
 
 Ultimo mensajes registrado Hacia el arduino:  Mon Aug 11 22:22:09 UTC 2025
